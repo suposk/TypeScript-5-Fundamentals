@@ -1,25 +1,34 @@
 "use strict";
-function CreateCustomer(name, age) {
-    //return name + age?.toString();
-    //return name + (age == undefined ? '' : age?.toString());
-    //var ageStr = age == undefined ? '' : age?.toString();
-    //return `${name} ${ageStr}`;
-    return `${name} ${age == undefined ? '' : age === null || age === void 0 ? void 0 : age.toString()}`;
-}
-console.log(CreateCustomer('John', 25));
-console.log(CreateCustomer('John'));
-function GetBooks(title, ...IDs) {
-    for (let id of IDs) {
-        console.log(id);
+function GetReview(title) {
+    if (title === 'A New Hope') {
+        return 'Classic';
     }
-    IDs.forEach(element => console.log(element));
-    let books = [
-        { title: 'Book1', author: 'Author1', available: true },
-        { title: 'Book2', author: 'Author2', available: false },
-        { title: 'Book3', author: 'Author3', available: true }
-    ];
-    return books.filter(book => book.title === title);
+    else if (title.length <= 5) {
+        return 'Ehhh ' + title;
+    }
+    return Math.floor(Math.random() * 10);
 }
-let book1 = GetBooks('Book1', 2, 3);
-console.log(book1);
+let movieTitle = 'A New Hope';
+movieTitle = 'The Force Awakens';
+//movieTitle = 'The ';
+let movieRating = GetReview(movieTitle);
+console.log(`Movie Title: ${movieTitle}`);
+if (typeof movieRating === 'string') {
+    console.log(`Review: ${movieRating}`);
+}
+else {
+    console.log(`Rating: ${movieRating}/10`);
+}
+let adder = (a, b) => a + b;
+var sum = adder(5, 10);
+console.log(sum);
+let scores = [10, 20, 30, 40, 50];
+let highScores;
+highScores = scores.filter((element, index, array) => {
+    console.log(`element: ${element}`, `index: ${index}`);
+    if (element > 30) {
+        return true;
+    }
+    return false;
+});
 console.log("end");
