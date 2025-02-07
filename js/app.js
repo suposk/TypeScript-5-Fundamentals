@@ -6,10 +6,10 @@ function GetReview(title) {
     else if (title.length <= 5) {
         return 'Ehhh ' + title;
     }
-    return Math.floor(Math.random() * 6) + 1;
+    return Math.floor(Math.random() * 10);
 }
 let movieTitle = 'A New Hope';
-//movieTitle = 'The Force Awakens';
+movieTitle = 'The Force Awakens';
 //movieTitle = 'The ';
 let movieRating = GetReview(movieTitle);
 console.log(`Movie Title: ${movieTitle}`);

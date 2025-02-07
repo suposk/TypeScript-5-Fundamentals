@@ -5,11 +5,11 @@ function GetReview(title: string): string | number {
     else if (title.length <= 5) {
         return 'Ehhh ' + title;
     }
-    return Math.floor(Math.random() * 6) + 1;    
+    return Math.floor(Math.random() * 10);    
 }
 
 let movieTitle: string = 'A New Hope';
-//movieTitle = 'The Force Awakens';
+movieTitle = 'The Force Awakens';
 //movieTitle = 'The ';
 
 let movieRating: string | number = GetReview(movieTitle);
