@@ -19,6 +19,16 @@ if (typeof movieRating === 'string') {
 else {
     console.log(`Rating: ${movieRating}/10`);
 }
+var cusStr = CreateCustomer('John', 25);
+console.log(cusStr);
+console.log(CreateCustomer('John'));
+function CreateCustomer(name, age) {
+    //return name + age?.toString();
+    //return name + (age == undefined ? '' : age?.toString());
+    //var ageStr = age == undefined ? '' : age?.toString();
+    //return `${name} ${ageStr}`;
+    return `${name} ${age == undefined ? '' : age === null || age === void 0 ? void 0 : age.toString()}`;
+}
 // for (let i = 1; i <=10; i++) {
 //   if (i % 2 === 0) {
 //     console.log(`Even number: ${i}`);
