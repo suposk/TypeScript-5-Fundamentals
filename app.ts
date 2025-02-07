@@ -1,46 +1,74 @@
-// function GetReview(title: string): string | number {
-//     if (title === 'A New Hope') {
-//         return 'Classic';
-//     }
-//     else if (title.length <= 5) {
-//         return 'Ehhh ' + title;
-//     }
-//     return Math.floor(Math.random() * 10);
-// }
-
-// let movieTitle: string = 'A New Hope';
-// movieTitle = 'The Force Awakens';
-// //movieTitle = 'The ';
-
-// let movieRating: string | number = GetReview(movieTitle);
-
-// console.log(`Movie Title: ${movieTitle}`);
-
-// if (typeof movieRating === 'string') {
-//     console.log(`Review: ${movieRating}`);
-// }
-// else {
-//     console.log(`Rating: ${movieRating}/10`);
-// }
-
-let adder = (a: number, b: number): number => a + b;
-var sum = adder(5, 10);
-console.log(sum);
-
-let scores: number[] = [10, 20, 30, 40, 50];
-let highScores: number[];
-highScores = scores.filter((element, index, array) => {
-    console.log(`element: ${element}`, `index: ${index}`);
-    if (element > 30) {
-        return true;
+function GetAllMovies() {
+    return [
+      { title: 'A New Hope', director: 'George Lucas', yearReleased: 1977, streaming: true },
+      { title: 'The Empire Strikes Back', director: 'Irvin Kershner', yearReleased: 1980, streaming: false },
+      { title: 'Return of the Jedi', director: 'Richard Marquand', yearReleased: 1983, streaming: true },
+      { title: 'The Phantom Menace', director: 'George Lucas', yearReleased: 1999, streaming: false },
+      { title: 'Attack of the Clones', director: 'George Lucas', yearReleased: 2002, streaming: true },
+      { title: 'Revenge of the Sith', director: 'George Lucas', yearReleased: 2005, streaming: true },
+      { title: 'The Force Awakens', director: 'J.J. Abrams', yearReleased: 2015, streaming: false },
+      { title: 'The Last Jedi', director: 'Rian Johnson', yearReleased: 2017, streaming: true },
+      { title: 'The Rise of Skywalker', director: 'J.J. Abrams', yearReleased: 2019, streaming: true }
+    ];
+  }
+  
+  function GetReview(title: string): string | number {
+    if (title == 'A New Hope') {
+      return 'An instant classic!';
     }
-    return false;
-});
+    else {
+      return Math.floor(Math.random() * 10);
+    }
+  }
+  
+  function PrintMovieInfo(title: string, yearReleased: number, ...cast: string[]) {
+  
+    console.log(`Title: ${title}`);
+    console.log(`Year Released: ${yearReleased}`);
+  
+    console.log('Cast:');
+  
+    for(const name of cast) {
+      console.log(`  ${name}`);
+    }
+  }
+  
+  
+function GetTitles(director: string): string[];
+function GetTitles(director: string, streaming: boolean): string[];
+function GetTitles(director: string, streaming?: boolean): string[] {
+    const allMovies = GetAllMovies();
+    const searchResults :string[] = [];
 
-function LogMessage(message: string): void {
-    console.log(message);
+    if(streaming !== undefined) {
+        for(let movie of allMovies) {
+          if(movie.director === director && movie.streaming === streaming) {
+            searchResults.push(movie.title);
+          }
+        }
+      } else {
+        for(let movie of allMovies) {
+          if(movie.director === director) {
+            searchResults.push(movie.title);
+          }
+        }
+      }
+      return searchResults;        
+
 }
 
-LogMessage("Hello World");
-
-console.log("end");
+var movies = GetTitles('George Lucas', false);
+movies.forEach((title) => console.log(title));
+  
+//   function CreateMovieID(name: string, id: number): string {
+//     return name + id;
+//   }
+  
+//   let x: number;
+//   x = 5;
+  
+//   let IdGenerator: (chars: string, nums: number) => string;
+//   IdGenerator = (name: string, id: number) => name + id;
+  
+//   let newID: string = IdGenerator('jedi', 20);
+//   console.log(newID);
