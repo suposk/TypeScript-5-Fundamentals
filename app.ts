@@ -11,7 +11,7 @@ function GetAllMovies() {
       { title: 'The Rise of Skywalker', director: 'J.J. Abrams', yearReleased: 2019, streaming: true }
     ];
   }
-  
+
   function GetReview(title: string): string | number {
     if (title == 'A New Hope') {
       return 'An instant classic!';
@@ -20,20 +20,20 @@ function GetAllMovies() {
       return Math.floor(Math.random() * 10);
     }
   }
-  
+
   function PrintMovieInfo(title: string, yearReleased: number, ...cast: string[]) {
-  
+
     console.log(`Title: ${title}`);
     console.log(`Year Released: ${yearReleased}`);
-  
+
     console.log('Cast:');
-  
+
     for(const name of cast) {
       console.log(`  ${name}`);
     }
   }
-  
-  
+
+
 function GetTitles(director: string): string[];
 function GetTitles(director: string, streaming: boolean): string[];
 function GetTitles(director: string, streaming?: boolean): string[] {
@@ -53,22 +53,22 @@ function GetTitles(director: string, streaming?: boolean): string[] {
           }
         }
       }
-      return searchResults;        
+      return searchResults;
 
 }
 
 var movies = GetTitles('George Lucas', false);
 movies.forEach((title) => console.log(title));
-  
-//   function CreateMovieID(name: string, id: number): string {
-//     return name + id;
-//   }
-  
-//   let x: number;
-//   x = 5;
-  
-//   let IdGenerator: (chars: string, nums: number) => string;
-//   IdGenerator = (name: string, id: number) => name + id;
-  
-//   let newID: string = IdGenerator('jedi', 20);
-//   console.log(newID);
+
+function CreateMovieID(name: string, id: number): string {
+return name + id;
+}
+
+let x: number;
+x = 5;
+
+let IdGenerator: (chars: string, nums: number) => string;
+IdGenerator = (name: string, id: number) => name + id;
+
+let newID: string = IdGenerator('jedi', 20);
+console.log(newID);

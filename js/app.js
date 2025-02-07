@@ -49,12 +49,12 @@ function GetTitles(director, streaming) {
 }
 var movies = GetTitles('George Lucas', false);
 movies.forEach((title) => console.log(title));
-//   function CreateMovieID(name: string, id: number): string {
-//     return name + id;
-//   }
-//   let x: number;
-//   x = 5;
-//   let IdGenerator: (chars: string, nums: number) => string;
-//   IdGenerator = (name: string, id: number) => name + id;
-//   let newID: string = IdGenerator('jedi', 20);
-//   console.log(newID);
+function CreateMovieID(name, id) {
+    return name + id;
+}
+let x;
+x = 5;
+let IdGenerator;
+IdGenerator = (name, id) => name + id;
+let newID = IdGenerator('jedi', 20);
+console.log(newID);
