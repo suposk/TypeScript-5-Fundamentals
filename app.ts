@@ -5,3 +5,24 @@ function CreateCustomer(name: string, age?: number): string {
     //return `${name} ${ageStr}`;
     return `${name} ${age == undefined ? '' : age?.toString()}`;
 }
+
+console.log(CreateCustomer('John', 25));
+console.log(CreateCustomer('John'));
+
+function GetBooks(title: string, ...IDs: number[]) {
+    for (let id of IDs) {
+        console.log(id);
+    }
+    IDs.forEach(element => console.log(element) );           
+    let books = [
+        { title: 'Book1', author: 'Author1', available: true },
+        { title: 'Book2', author: 'Author2', available: false },
+        { title: 'Book3', author: 'Author3', available: true }
+    ];
+    return books.filter(book => book.title === title);    
+}
+
+let book1 = GetBooks('Book1', 2, 3);
+console.log(book1);
+
+console.log("end");

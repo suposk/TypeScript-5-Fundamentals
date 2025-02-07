@@ -1,27 +1,4 @@
 "use strict";
-function GetReview(title) {
-    if (title === 'A New Hope') {
-        return 'Classic';
-    }
-    else if (title.length <= 5) {
-        return 'Ehhh ' + title;
-    }
-    return Math.floor(Math.random() * 10);
-}
-let movieTitle = 'A New Hope';
-movieTitle = 'The Force Awakens';
-//movieTitle = 'The ';
-let movieRating = GetReview(movieTitle);
-console.log(`Movie Title: ${movieTitle}`);
-if (typeof movieRating === 'string') {
-    console.log(`Review: ${movieRating}`);
-}
-else {
-    console.log(`Rating: ${movieRating}/10`);
-}
-var cusStr = CreateCustomer('John', 25);
-console.log(cusStr);
-console.log(CreateCustomer('John'));
 function CreateCustomer(name, age) {
     //return name + age?.toString();
     //return name + (age == undefined ? '' : age?.toString());
@@ -29,32 +6,20 @@ function CreateCustomer(name, age) {
     //return `${name} ${ageStr}`;
     return `${name} ${age == undefined ? '' : age === null || age === void 0 ? void 0 : age.toString()}`;
 }
-// for (let i = 1; i <=10; i++) {
-//   if (i % 2 === 0) {
-//     console.log(`Even number: ${i}`);
-//   }
-//   else {
-//     console.log(`Odd number: ${i}`);
-//   }
-// }
-// let i:number = 1;
-// while (i <= 10) {
-//   if (i % 2 === 0) {
-//     console.log(`Even number: ${i}`);
-//   }
-//   else {
-//     console.log(`Odd number: ${i}`);
-//   }
-//   i++;
-// }
-// let fruit: string = 'apple';
-// switch (fruit) {
-//     case 'apple' :
-//         console.log('Apple');
-//         break;
-//     case 'banana':
-//         console.log('Banana');
-//         break;
-//     default: 
-//     break
-// }
+console.log(CreateCustomer('John', 25));
+console.log(CreateCustomer('John'));
+function GetBooks(title, ...IDs) {
+    for (let id of IDs) {
+        console.log(id);
+    }
+    IDs.forEach(element => console.log(element));
+    let books = [
+        { title: 'Book1', author: 'Author1', available: true },
+        { title: 'Book2', author: 'Author2', available: false },
+        { title: 'Book3', author: 'Author3', available: true }
+    ];
+    return books.filter(book => book.title === title);
+}
+let book1 = GetBooks('Book1', 2, 3);
+console.log(book1);
+console.log("end");
