@@ -6,13 +6,26 @@ let myMovie = {
     streaming: true,
     length: 121,
     logReview: (review) => {
-        console.log(`logReview Review: ${review}`);
+        console.log(`ReviewLogger: ${review}`);
     }
 };
 PrintMovieInfo(myMovie);
 if (myMovie.logReview) {
     myMovie.logReview(myMovie.title);
 }
+class Performer {
+    constructor() {
+        this.name = "";
+        this.email = "";
+        this.role = "";
+    }
+    rehearse(sceneNumber) {
+        console.log(`Rehearsing scene ${sceneNumber}`);
+    }
+}
+let actor = new Performer();
+actor.name = "Harrison Ford";
+actor.rehearse(42);
 function GetAllMovies() {
     return [
         { title: 'A New Hope', director: 'George Lucas', yearReleased: 1977, streaming: true },
@@ -63,9 +76,12 @@ movies.forEach((title) => console.log(title));
 function CreateMovieID(name, id) {
     return name + id;
 }
+;
 let x;
 x = 5;
+//let IdGenerator: (chars: string, nums: number) => string;
 let IdGenerator;
-IdGenerator = (name, id) => name + id;
+//IdGenerator = (name: string, id: number) => name + id;
+IdGenerator = CreateMovieID;
 let newID = IdGenerator('jedi', 20);
 console.log(newID);

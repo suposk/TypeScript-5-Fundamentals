@@ -5,8 +5,13 @@ interface Movie {
     streaming: boolean,
     length?: number,
 
-    logReview?: (review: string | number) => void
+    //logReview?: (review: string | number) => void
+    logReview?: ReviewLogger
 }  
+
+interface ReviewLogger {
+    (review: string): void;
+}
 
 let myMovie: Movie = {
    title: 'A New Hope', 
@@ -16,7 +21,7 @@ let myMovie: Movie = {
    length: 121, 
 
     logReview: (review: string | number) => {
-      console.log(`logReview Review: ${review}`);
+      console.log(`ReviewLogger: ${review}`);
     }
 };
 
@@ -24,6 +29,34 @@ PrintMovieInfo(myMovie);
 if (myMovie.logReview) {
     myMovie.logReview(myMovie.title);
 }
+
+interface Person {
+    name: string,
+    email: string,
+}
+
+interface Director extends Person {
+    numberOfMoviesDirected: number,
+}
+
+interface ICastMember extends Person {
+    role: string,
+    rehearse:(sceneNumber: number) => void,
+}
+
+class Performer implements ICastMember{
+    name: string = "";
+    email: string = "";
+    role: string = "";
+
+    rehearse(sceneNumber: number): void {
+        console.log(`Rehearsing scene ${sceneNumber}`);
+    }
+}
+
+let actor: ICastMember = new Performer();
+actor.name = "Harrison Ford";
+actor.rehearse(42);
 
 function GetAllMovies(): Movie[] {
     return [
@@ -85,11 +118,17 @@ function CreateMovieID(name: string, id: number): string {
 return name + id;
 }
 
+interface StringGenerator {
+  (chars: string, nums: number): string;
+};
+
 let x: number;
 x = 5;
 
-let IdGenerator: (chars: string, nums: number) => string;
-IdGenerator = (name: string, id: number) => name + id;
+//let IdGenerator: (chars: string, nums: number) => string;
+let IdGenerator: StringGenerator;
+//IdGenerator = (name: string, id: number) => name + id;
+IdGenerator = CreateMovieID;
 
 let newID: string = IdGenerator('jedi', 20);
 console.log(newID);
