@@ -132,3 +132,38 @@ IdGenerator = CreateMovieID;
 
 let newID: string = IdGenerator('jedi', 20);
 console.log(newID);
+
+
+class ReferenceItem {
+  private _editor: string= "";
+  get editor(): string {
+    return this._editor;
+  }
+  set editor(newEditor: string) {
+      if (newEditor === undefined) {
+      throw new Error('Editor name cannot be undefined');
+    }
+    this._editor = newEditor;
+  }
+
+  constructor(public title: string, protected publisher?: string) {
+    console.log('Creating a new ReferenceItem...');
+  }
+
+  static department: string = 'Research';
+
+  printItem(): void {
+    console.log(`${this.title} was published by ${this.publisher}`);
+  }
+
+  myMethod(): void {
+    this.title = 'New Title';
+    this.publisher = 'New Publisher';
+  }
+
+}
+
+let refItem = new ReferenceItem('Facts and Figures', 'Random House');
+refItem.title = 'Facts and Figures';
+var dep = ReferenceItem.department;
+
