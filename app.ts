@@ -1,4 +1,31 @@
-function GetAllMovies() {
+interface Movie {
+    title: string,
+    director: string,
+    yearReleased: number,
+    streaming: boolean,
+    length?: number,
+
+    logReview?: (review: string | number) => void
+}  
+
+let myMovie: Movie = {
+   title: 'A New Hope', 
+   director: 'George Lucas', 
+   yearReleased: 1977, 
+   streaming: true,
+   length: 121, 
+
+    logReview: (review: string | number) => {
+      console.log(`logReview Review: ${review}`);
+    }
+};
+
+PrintMovieInfo(myMovie);
+if (myMovie.logReview) {
+    myMovie.logReview(myMovie.title);
+}
+
+function GetAllMovies(): Movie[] {
     return [
       { title: 'A New Hope', director: 'George Lucas', yearReleased: 1977, streaming: true },
       { title: 'The Empire Strikes Back', director: 'Irvin Kershner', yearReleased: 1980, streaming: false },
@@ -21,16 +48,10 @@ function GetAllMovies() {
     }
   }
 
-  function PrintMovieInfo(title: string, yearReleased: number, ...cast: string[]) {
-
-    console.log(`Title: ${title}`);
-    console.log(`Year Released: ${yearReleased}`);
-
-    console.log('Cast:');
-
-    for(const name of cast) {
-      console.log(`  ${name}`);
-    }
+  function PrintMovieInfo(movie: Movie): void {
+    console.log(`Title: ${movie.title}`);
+    console.log(`Year Released: ${movie.yearReleased}`);
+    console.log(`Director: ${movie.director}`);
   }
 
 

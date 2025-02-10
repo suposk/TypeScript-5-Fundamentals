@@ -1,4 +1,18 @@
 "use strict";
+let myMovie = {
+    title: 'A New Hope',
+    director: 'George Lucas',
+    yearReleased: 1977,
+    streaming: true,
+    length: 121,
+    logReview: (review) => {
+        console.log(`logReview Review: ${review}`);
+    }
+};
+PrintMovieInfo(myMovie);
+if (myMovie.logReview) {
+    myMovie.logReview(myMovie.title);
+}
 function GetAllMovies() {
     return [
         { title: 'A New Hope', director: 'George Lucas', yearReleased: 1977, streaming: true },
@@ -20,13 +34,10 @@ function GetReview(title) {
         return Math.floor(Math.random() * 10);
     }
 }
-function PrintMovieInfo(title, yearReleased, ...cast) {
-    console.log(`Title: ${title}`);
-    console.log(`Year Released: ${yearReleased}`);
-    console.log('Cast:');
-    for (const name of cast) {
-        console.log(`  ${name}`);
-    }
+function PrintMovieInfo(movie) {
+    console.log(`Title: ${movie.title}`);
+    console.log(`Year Released: ${movie.yearReleased}`);
+    console.log(`Director: ${movie.director}`);
 }
 function GetTitles(director, streaming) {
     const allMovies = GetAllMovies();
