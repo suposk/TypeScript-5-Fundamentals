@@ -188,7 +188,7 @@ var dep = ReferenceItem.department;
 class Video {
 
   private _producer: string = "";
-  static description: string = 'A movie or other piece of content';
+  static description: string = 'some description';
 
   get producer(): string {
     return this._producer.toUpperCase();
@@ -208,13 +208,25 @@ class Video {
 
   printItem(): void {
     console.log(`${this.title} was released in ${this.year}`);
+    console.log(`description: ${Video.description}`);
   }
 
 }
 
+/*
 var vid = new Video('Star Wars', 1977);
 vid.producer = 'Gary Kurtz';
 const a = Video.description;
 a.replace('movie', 'film');
 vid.printItem();
 console.log(vid.producer);
+
+*/
+
+class Documentary extends Video{
+  subject: string = "";
+
+}
+
+let doc = new Documentary('The Force of Sound', 2018);
+doc.printItem();

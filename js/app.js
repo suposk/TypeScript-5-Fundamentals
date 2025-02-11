@@ -174,11 +174,24 @@ class Video {
     }
     printItem() {
         console.log(`${this.title} was released in ${this.year}`);
+        console.log(`description: ${Video.description}`);
     }
 }
-Video.description = 'A movie or other piece of content';
+Video.description = 'some description';
+/*
 var vid = new Video('Star Wars', 1977);
 vid.producer = 'Gary Kurtz';
-var a = Video.description;
+const a = Video.description;
+a.replace('movie', 'film');
 vid.printItem();
 console.log(vid.producer);
+
+*/
+class Documentary extends Video {
+    constructor() {
+        super(...arguments);
+        this.subject = "";
+    }
+}
+let doc = new Documentary('The Force of Sound', 2018);
+doc.printItem();
