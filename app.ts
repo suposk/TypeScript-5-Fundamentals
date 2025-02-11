@@ -20,16 +20,18 @@ function getMoviesByDirector(director: string): Promise<string[]> {
 
 console.log('Beginning search...');
 console.log('--------------------------------------');
-getMoviesByDirector('George Lucas').then((movies) => {
-  console.log(`Found movies: ${movies}`);
-  throw 'Something went wrong';
-  return movies.length;
-}, reason => { return 0; })
-.then((numMovies) => console.log(`Found ${numMovies} movies.`))
-.catch((error) => {
-  console.log('Error:', error);
-});
 
-console.log('Search submitted...');
+async function Search(director:string) {
+  console.log('Search submitted...');
+  console.log({director});
+  let movies = await getMoviesByDirector(director);
+  console.log('Search complete...');
+  console.log(`${movies}`);
+}
+
+//Search('George Lucas') //ok
+Search('xxx') //error
+  .catch((error) => console.log(`Error: ${error}`));
+
 console.log('--------------------------------------');
 console.log('end of app.ts');
