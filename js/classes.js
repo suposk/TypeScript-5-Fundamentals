@@ -87,6 +87,12 @@ class Favorites {
     getItems() {
         return this._items;
     }
+    find(title) {
+        return this._items.filter(item => item.title === title)[0];
+    }
+    printTitles() {
+        this._items.forEach(item => console.log(item.title));
+    }
 }
 exports.Favorites = Favorites;
 //# sourceMappingURL=classes.js.map

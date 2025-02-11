@@ -1,4 +1,4 @@
-import { Movie, Logger, ICastMember } from './interfaces';
+import { Movie, Logger, ICastMember, FavoriteItem } from './interfaces';
 
 export class Performer implements ICastMember{
     name: string = "";
@@ -86,7 +86,7 @@ abstract class Video {
     }
   }
 
-  export class Favorites<T>{
+  export class Favorites<T extends FavoriteItem> {
     private _items: Array<T> = new Array<T>();
 
     addItem(item: T): void {
@@ -100,5 +100,14 @@ abstract class Video {
     getItems(): Array<T> {
       return this._items;
     }
+
+    find(title: string): T {
+      return this._items.filter(item => item.title === title)[0];
+    }
+
+    printTitles(): void {
+      this._items.forEach(item => console.log(item.title));
+    }
+
   }
   

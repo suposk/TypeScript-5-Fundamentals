@@ -50,7 +50,8 @@ console.log('end of app.ts');
 */
 let inventory = Utility.GetAllMovies();
 let favorites = new classes_1.Favorites();
-inventory.forEach(movie => {
-    favorites.addItem(movie);
-});
+inventory.forEach(movie => favorites.addItem(movie));
+favorites.printTitles();
+let first = favorites.getFirst();
+console.log(`First item: ${first.title}`);
 //# sourceMappingURL=app.js.map

@@ -27,4 +27,8 @@ interface ICastMember extends Person {
     rehearse:(sceneNumber: number) => void,
 }
 
-export { Movie, ReviewLogger as Logger, Person, Director, ICastMember };
+interface FavoriteItem {
+    title: string,    
+}
+
+export { Movie, ReviewLogger as Logger, Person, Director, ICastMember, FavoriteItem };

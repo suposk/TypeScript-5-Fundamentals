@@ -21,7 +21,9 @@ let inventory: Array<Movie> = Utility.GetAllMovies();
 let favorites: Favorites<Movie> = new Favorites<Movie>();
 inventory.forEach(movie => favorites.addItem(movie));
 
-let first: Movie = favorites.getFirst();
+favorites.printTitles();
 
+let first: Movie = favorites.getFirst();
+console.log(`First item: ${first.title}`);
 
 
