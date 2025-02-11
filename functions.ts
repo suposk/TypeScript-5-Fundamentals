@@ -52,3 +52,27 @@ export function GetTitles(director: string, streaming?: boolean): string[] {
       return searchResults;
 
 }
+
+function getMoviesByDirector(director: string): Promise<string[]> {
+    let p: Promise<string[]> = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        let movies: string[] = GetTitles(director);
+        if (movies.length > 0) {
+          resolve(movies);
+        } else {
+          reject('No movies found for that director.');
+        }
+        
+      }, 2000);       
+    });
+    return p;
+  
+  }
+
+  export async function Search(director:string) {
+    console.log('Search submitted...');
+    console.log({director});
+    let movies = await getMoviesByDirector(director);
+    console.log('Search complete...');
+    console.log(`${movies}`);
+  }
