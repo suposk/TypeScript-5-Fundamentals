@@ -176,7 +176,9 @@ class Video {
         console.log(`${this.title} was released in ${this.year}`);
     }
 }
+Video.description = 'A movie or other piece of content';
 var vid = new Video('Star Wars', 1977);
 vid.producer = 'Gary Kurtz';
+var a = Video.description;
 vid.printItem();
 console.log(vid.producer);
