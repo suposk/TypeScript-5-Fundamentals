@@ -85,4 +85,20 @@ abstract class Video {
       console.log(`Subject: ${this.subject} (${this.year})`);
     }
   }
+
+  export class Favorites<T>{
+    private _items: Array<T> = new Array<T>();
+
+    addItem(item: T): void {
+      this._items.push(item);
+    }
+
+    getFirst(): T {
+      return this._items[0];
+    }
+
+    getItems(): Array<T> {
+      return this._items;
+    }
+  }
   

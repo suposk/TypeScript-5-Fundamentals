@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Documentary = exports.ReferenceItem = exports.Performer = void 0;
+exports.Favorites = exports.Documentary = exports.ReferenceItem = exports.Performer = void 0;
 class Performer {
     constructor() {
         this.name = "";
@@ -74,4 +74,19 @@ class Documentary extends Video {
     }
 }
 exports.Documentary = Documentary;
+class Favorites {
+    constructor() {
+        this._items = new Array();
+    }
+    addItem(item) {
+        this._items.push(item);
+    }
+    getFirst() {
+        return this._items[0];
+    }
+    getItems() {
+        return this._items;
+    }
+}
+exports.Favorites = Favorites;
 //# sourceMappingURL=classes.js.map

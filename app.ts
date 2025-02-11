@@ -1,5 +1,5 @@
 import { Movie, Logger, ICastMember as Actor } from './interfaces';
-import { Performer, ReferenceItem, Documentary } from './classes';
+import { Performer, ReferenceItem, Documentary, Favorites } from './classes';
 import * as Utility from './functions';
 
 
@@ -18,6 +18,10 @@ console.log('end of app.ts');
 */
 
 let inventory: Array<Movie> = Utility.GetAllMovies();
-let purge: Array<Movie> = Utility.Purge<Movie>(inventory);
+let favorites: Favorites<Movie> = new Favorites<Movie>();
+inventory.forEach(movie => favorites.addItem(movie));
 
-console.log(`purged ${purge.length} movies ...`);
+let first: Movie = favorites.getFirst();
+
+
+

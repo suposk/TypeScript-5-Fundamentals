@@ -33,12 +33,12 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+const classes_1 = require("./classes");
 const Utility = __importStar(require("./functions"));
 /*
 
 console.log('Beginning search...');
 console.log('--------------------------------------');
-
 
 Utility.Search('George Lucas') //ok
 //Utility.Search('xxx') //error
@@ -49,6 +49,8 @@ console.log('end of app.ts');
 
 */
 let inventory = Utility.GetAllMovies();
-let purge = Utility.Purge(inventory);
-console.log(`purged ${purge.length} movies ...`);
+let favorites = new classes_1.Favorites();
+inventory.forEach(movie => {
+    favorites.addItem(movie);
+});
 //# sourceMappingURL=app.js.map
