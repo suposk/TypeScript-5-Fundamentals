@@ -1,4 +1,5 @@
 import { Movie, Logger, ICastMember, FavoriteItem } from './interfaces';
+import { logMethodInfo } from './decorators';
 
 export class Performer implements ICastMember{
     name: string = "";
@@ -80,6 +81,7 @@ abstract class Video {
       console.log(`Credits: Produced by ${this.producer}`);
     }
   
+    @logMethodInfo
     printItem(): void {
       super.printItem();
       console.log(`Subject: ${this.subject} (${this.year})`);
