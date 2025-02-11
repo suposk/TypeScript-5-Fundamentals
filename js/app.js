@@ -33,25 +33,10 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-const classes_1 = require("./classes");
 const Utility = __importStar(require("./functions"));
-/*
-
-console.log('Beginning search...');
-console.log('--------------------------------------');
-
-Utility.Search('George Lucas') //ok
-//Utility.Search('xxx') //error
-  .catch((error) => console.log(`Error: ${error}`));
-
-console.log('--------------------------------------');
-console.log('end of app.ts');
-
-*/
+const _ = __importStar(require("lodash"));
 let inventory = Utility.GetAllMovies();
-let favorites = new classes_1.Favorites();
-inventory.forEach(movie => favorites.addItem(movie));
-favorites.printTitles();
-let first = favorites.getFirst();
-console.log(`First item: ${first.title}`);
+inventory.forEach(movie => {
+    console.log(_.snakeCase(movie.title));
+});
 //# sourceMappingURL=app.js.map

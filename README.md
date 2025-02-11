@@ -1,1 +1,1 @@
-M10  Start type declaration
+M10  end type declaration
