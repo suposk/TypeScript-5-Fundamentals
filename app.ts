@@ -201,7 +201,7 @@ class Video {
     this._producer = newProducer;
   }
 
-  constructor(public title: string, private year: number)
+  constructor(public title: string, protected year: number)
   {
     console.log('Creating a new Video...');    
   }
@@ -223,10 +223,17 @@ console.log(vid.producer);
 
 */
 
-class Documentary extends Video{
-  subject: string = "";
+class Documentary extends Video{  
 
+  constructor(title: string, year: number, public subject: string) {
+    super(title, year);
+  }
+
+  printItem(): void {
+    super.printItem();
+    console.log(`Subject: ${this.subject} (${this.year})`);
+  }
 }
 
-let doc = new Documentary('The Force of Sound', 2018);
+let doc = new Documentary('The Force of Sound', 2018, 'Sound Design');
 doc.printItem();

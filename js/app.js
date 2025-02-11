@@ -188,10 +188,14 @@ console.log(vid.producer);
 
 */
 class Documentary extends Video {
-    constructor() {
-        super(...arguments);
-        this.subject = "";
+    constructor(title, year, subject) {
+        super(title, year);
+        this.subject = subject;
+    }
+    printItem() {
+        super.printItem();
+        console.log(`Subject: ${this.subject} (${this.year})`);
     }
 }
-let doc = new Documentary('The Force of Sound', 2018);
+let doc = new Documentary('The Force of Sound', 2018, 'Sound Design');
 doc.printItem();
