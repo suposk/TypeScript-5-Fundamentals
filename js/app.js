@@ -34,11 +34,21 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 const Utility = __importStar(require("./functions"));
+/*
+
 console.log('Beginning search...');
 console.log('--------------------------------------');
+
+
 Utility.Search('George Lucas') //ok
-    //Utility.Search('xxx') //error
-    .catch((error) => console.log(`Error: ${error}`));
+//Utility.Search('xxx') //error
+  .catch((error) => console.log(`Error: ${error}`));
+
 console.log('--------------------------------------');
 console.log('end of app.ts');
+
+*/
+let inventory = Utility.GetAllMovies();
+let purge = Utility.Purge(inventory);
+console.log(`purged ${purge.length} movies ...`);
 //# sourceMappingURL=app.js.map

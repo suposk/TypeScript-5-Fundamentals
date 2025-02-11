@@ -76,3 +76,7 @@ function getMoviesByDirector(director: string): Promise<string[]> {
     console.log('Search complete...');
     console.log(`${movies}`);
   }
+
+  export function Purge<T> (inventory: Array<T>): Array<T> {
+    return inventory.splice(3, inventory.length);
+  }

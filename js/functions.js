@@ -13,6 +13,7 @@ exports.GetAllMovies = GetAllMovies;
 exports.PrintMovieInfo = PrintMovieInfo;
 exports.GetTitles = GetTitles;
 exports.Search = Search;
+exports.Purge = Purge;
 function GetAllMovies() {
     return [
         { title: 'A New Hope', director: 'George Lucas', yearReleased: 1977, streaming: true },
@@ -80,5 +81,8 @@ function Search(director) {
         console.log('Search complete...');
         console.log(`${movies}`);
     });
+}
+function Purge(inventory) {
+    return inventory.splice(3, inventory.length);
 }
 //# sourceMappingURL=functions.js.map
