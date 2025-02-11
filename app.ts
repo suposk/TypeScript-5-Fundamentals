@@ -185,7 +185,7 @@ var dep = ReferenceItem.department;
 
 // }
 
-class Video {
+abstract class Video {
 
   private _producer: string = "";
   static description: string = 'some description';
@@ -211,6 +211,8 @@ class Video {
     console.log(`description: ${Video.description}`);
   }
 
+  abstract printCredits(): void;
+
 }
 
 /*
@@ -223,10 +225,13 @@ console.log(vid.producer);
 
 */
 
-class Documentary extends Video{  
-
+class Documentary extends Video {
   constructor(title: string, year: number, public subject: string) {
     super(title, year);
+  }
+
+  printCredits(): void {
+    console.log(`Credits: Produced by ${this.producer}`);
   }
 
   printItem(): void {
@@ -235,5 +240,10 @@ class Documentary extends Video{
   }
 }
 
-let doc = new Documentary('The Force of Sound', 2018, 'Sound Design');
-doc.printItem();
+let doc : Video = new Documentary('The Force of Sound', 2018, 'Sound Design');
+//doc.producer = 'Gary Kurtz';
+let t : string | undefined;
+t = undefined;
+//doc.producer = t!;
+//doc.printItem();
+doc.printCredits();
