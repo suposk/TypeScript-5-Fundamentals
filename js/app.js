@@ -201,9 +201,10 @@ class Documentary extends Video {
     }
 }
 let doc = new Documentary('The Force of Sound', 2018, 'Sound Design');
-//doc.producer = 'Gary Kurtz';
+doc.producer = 'Gary Kurtz';
 let t;
 t = undefined;
 //doc.producer = t!;
 //doc.printItem();
 doc.printCredits();
+//# sourceMappingURL=app.js.map
