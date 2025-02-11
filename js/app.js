@@ -52,7 +52,11 @@ console.log('Beginning search...');
 console.log('--------------------------------------');
 getMoviesByDirector('George Lucas').then((movies) => {
     console.log(`Found movies: ${movies}`);
-}).catch((error) => {
+    throw 'Something went wrong';
+    return movies.length;
+}, reason => { return 0; })
+    .then((numMovies) => console.log(`Found ${numMovies} movies.`))
+    .catch((error) => {
     console.log('Error:', error);
 });
 console.log('Search submitted...');
