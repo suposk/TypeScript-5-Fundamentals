@@ -1,1 +1,1 @@
-M9  End Generic
+M10  Start type declaration
