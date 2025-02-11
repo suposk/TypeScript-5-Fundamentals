@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetAllMovies = GetAllMovies;
 exports.PrintMovieInfo = PrintMovieInfo;
+exports.GetTitles = GetTitles;
 function GetAllMovies() {
     return [
         { title: 'A New Hope', director: 'George Lucas', yearReleased: 1977, streaming: true },
