@@ -1,1 +1,1 @@
-M10  end type declaration
+M11 start decorations
